@@ -26,7 +26,6 @@ public class FirstServlet extends HttpServlet {
 		// #3. We send the object using req.setAttribute()
 		req.setAttribute("name", fullName);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/output.jsp");
-		//forward it
 		dispatcher.forward(req, resp);
 	}
 }

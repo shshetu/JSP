@@ -10,10 +10,10 @@
 <h1>This is output file </h1>
 <%-- <p>Hello, <%=request.getAttribute("name") %></p> --%>
 <h2>Hello my name is: 
-<%
-String fullName = request.getAttribute("name").toString();
-out.println(fullName);
-%>
+
+ <% String fullName = request.getAttribute("name").toString();
+out.print(fullName);
+%> 
 </h2>
 </body>
 </html>
