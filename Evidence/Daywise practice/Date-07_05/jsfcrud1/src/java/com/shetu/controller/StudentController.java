@@ -8,6 +8,7 @@ package com.shetu.controller;
 import com.shetu.entity.Student;
 import com.shetu.implementation.StudentImplementation;
 import com.shetu.service.StudentService;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.ManagedBean;
 import javax.faces.application.FacesMessage;
@@ -31,23 +32,41 @@ public class StudentController {
         FacesContext.getCurrentInstance().addMessage("MessageId", new FacesMessage(FacesMessage.SEVERITY_INFO, "Save Successfull!", null));
         System.out.println("Saved successfully!");
     }
-    
-    public void update(){
-    service = new StudentImplementation();
-    service.update(student);
-    FacesContext.getCurrentInstance().addMessage("MessageIdUp", new FacesMessage(FacesMessage.SEVERITY_INFO,"Update Successfull!",null));
+
+    public void update() {
+        service = new StudentImplementation();
+        service.update(student);
+        FacesContext.getCurrentInstance().addMessage("MessageIdUp", new FacesMessage(FacesMessage.SEVERITY_INFO, "Update Successfull!", null));
         System.out.println("Update successfully!");
     }
-    
-    public void delete(){
-    service = new StudentImplementation();
-    service.delete(student);
-    FacesContext.getCurrentInstance().addMessage("MessageIdUp", new FacesMessage(FacesMessage.SEVERITY_INFO,"Delete Succful!",null));
+
+    public void delete() {
+        service = new StudentImplementation();
+        service.delete(student);
+        FacesContext.getCurrentInstance().addMessage("MessageIdUp", new FacesMessage(FacesMessage.SEVERITY_INFO, "Delete Succful!", null));
         System.out.println("Deleted Successfully!");
     }
-public Student getStudent(){
-if(student == null){
-student
-}
-}
+
+    public Student getStudent() {
+        if (student == null) {
+            student = new Student();
+        }
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public List<Student> getStudents() {
+        students = new ArrayList<>();
+        service = new StudentImplementation();
+        students = service.getStudent();
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
 }
